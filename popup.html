@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacidade no WhatsApp</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 290px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #111b21; /* WhatsApp Dark Mode Background */
+      color: #e9edef;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #222e35;
+    }
+    .logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e9edef;
+    }
+    .subtitle {
+      font-size: 11px;
+      color: #8696a0;
+    }
+    .master-toggle-card {
+      background: #202c33;
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      border: 1px solid #2a3942;
+    }
+    .master-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    /* Switch toggle */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #3b4a54;
+      transition: .25s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .25s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #00a884; /* WhatsApp Green */
+    }
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #182229;
+      border-radius: 10px;
+      padding: 12px 14px;
+      border: 1px solid #222e35;
+    }
+    .option-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #d1d7db;
+      cursor: pointer;
+    }
+    .option-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #00a884;
+      cursor: pointer;
+    }
+    .info-footer {
+      margin-top: 14px;
+      font-size: 11px;
+      color: #8696a0;
+      line-height: 1.4;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" alt="Logo" class="logo">
+    <div>
+      <div class="title">Modo Privacidade</div>
+      <div class="subtitle">WhatsApp Web Seguro</div>
+    </div>
+  </div>
+
+  <div class="master-toggle-card">
+    <span class="master-label">Ocultação Ativa</span>
+    <label class="switch">
+      <input type="checkbox" id="toggleMaster" checked>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="options-list">
+    <label class="option-item">
+      <span>💬 Borrar Mensagens</span>
+      <input type="checkbox" id="chkMessages" checked>
+    </label>
+    <label class="option-item">
+      <span>👤 Borrar Nomes</span>
+      <input type="checkbox" id="chkNames" checked>
+    </label>
+    <label class="option-item">
+      <span>🖼️ Borrar Fotos de Perfil</span>
+      <input type="checkbox" id="chkPhotos" checked>
+    </label>
+  </div>
+
+  <div class="info-footer">
+    💡 <strong>Dica:</strong> Passe o mouse por cima do que estiver borrado para espiar temporariamente.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

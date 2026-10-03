@@ -1,0 +1,66 @@
+/* Efeitos de Blur (Desfoque) para Privacidade no WhatsApp Web */
+
+/* Transição suave ao passar o mouse */
+body.wa-privacy-active span,
+body.wa-privacy-active div,
+body.wa-privacy-active img {
+  transition: filter 0.18s ease-in-out !important;
+}
+
+/* 1. Borrar Mensagens na conversa ativa */
+body.wa-privacy-active.blur-messages div[data-testid="msg-container"] span.selectable-text,
+body.wa-privacy-active.blur-messages div[class*="message-in"] span.selectable-text,
+body.wa-privacy-active.blur-messages div[class*="message-out"] span.selectable-text,
+body.wa-privacy-active.blur-messages div[data-testid="chat-history"] .copyable-text {
+  filter: blur(6px) !important;
+}
+
+body.wa-privacy-active.blur-messages div[data-testid="msg-container"]:hover span.selectable-text,
+body.wa-privacy-active.blur-messages div[class*="message-in"]:hover span.selectable-text,
+body.wa-privacy-active.blur-messages div[class*="message-out"]:hover span.selectable-text,
+body.wa-privacy-active.blur-messages div[data-testid="chat-history"] .copyable-text:hover {
+  filter: blur(0px) !important;
+}
+
+/* 2. Borrar Prévia de Mensagens na Lista de Conversas (Lateral Esquerda) */
+body.wa-privacy-active.blur-messages div[role="listitem"] span[title] ~ span,
+body.wa-privacy-active.blur-messages div[data-testid="cell-frame-container"] span[title] + div,
+body.wa-privacy-active.blur-messages div[data-testid="last-msg-status"] {
+  filter: blur(6px) !important;
+}
+
+body.wa-privacy-active.blur-messages div[role="listitem"]:hover span[title] ~ span,
+body.wa-privacy-active.blur-messages div[data-testid="cell-frame-container"]:hover span[title] + div,
+body.wa-privacy-active.blur-messages div[data-testid="last-msg-status"]:hover {
+  filter: blur(0px) !important;
+}
+
+/* 3. Borrar Nomes de Contatos */
+body.wa-privacy-active.blur-names header span[title],
+body.wa-privacy-active.blur-names div[role="listitem"] span[title],
+body.wa-privacy-active.blur-names div[data-testid="conversation-info-header-chat-title"],
+body.wa-privacy-active.blur-names span[data-testid="chat-title"] {
+  filter: blur(5px) !important;
+}
+
+body.wa-privacy-active.blur-names header span[title]:hover,
+body.wa-privacy-active.blur-names div[role="listitem"]:hover span[title],
+body.wa-privacy-active.blur-names div[data-testid="conversation-info-header-chat-title"]:hover,
+body.wa-privacy-active.blur-names span[data-testid="chat-title"]:hover {
+  filter: blur(0px) !important;
+}
+
+/* 4. Borrar Fotos de Perfil (Avatares) */
+body.wa-privacy-active.blur-photos img[src*="whatsapp"],
+body.wa-privacy-active.blur-photos img[data-testid="user-avatar"],
+body.wa-privacy-active.blur-photos div[data-testid="avatar"] img,
+body.wa-privacy-active.blur-photos header img {
+  filter: blur(8px) !important;
+}
+
+body.wa-privacy-active.blur-photos img[src*="whatsapp"]:hover,
+body.wa-privacy-active.blur-photos img[data-testid="user-avatar"]:hover,
+body.wa-privacy-active.blur-photos div[data-testid="avatar"] img:hover,
+body.wa-privacy-active.blur-photos header img:hover {
+  filter: blur(0px) !important;
+}
